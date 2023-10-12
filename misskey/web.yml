@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+  namespace: misskey
+spec:
+  selector:
+    app: web
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+  type: NodePort
+
+---
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: web-deployment
+  namespace: misskey
+  labels:
+    deploy: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: misskey/misskey:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /misskey/.config
+              name: misskey-default-conf-file
+          ports:
+            - containerPort: 3000
+
+          # Podの準備が出来ているか確認用
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+              scheme: HTTP
+      volumes:
+        - name: misskey-default-conf-file
+          configMap:
+            name: misskey-default-config
+---
+# ingress の設定
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-ingress
+  namespace: misskey
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 200m
+
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: mi.ichigo.dev
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: web-service
+                port:
+                  number: 80
+            path: /

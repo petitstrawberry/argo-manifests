@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 51.2.0
+    chart: kube-prometheus-stack
+    helm:
+      parameters:
+        - name: "grafana.service.type"
+          value: "LoadBalancer"
+        - name: "grafana.service.loadBalancerIP"
+          value: "192.168.10.102"
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prometheus-stack
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true

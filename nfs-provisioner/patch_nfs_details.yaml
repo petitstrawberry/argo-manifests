@@ -1,0 +1,22 @@
+# patch_nfs_details.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nfs-client-provisioner
+  name: nfs-client-provisioner
+spec:
+  template:
+    spec:
+      containers:
+        - name: nfs-client-provisioner
+          env:
+            - name: NFS_SERVER
+              value: 192.168.10.3
+            - name: NFS_PATH
+              value: /mnt/shared-disk/nfs
+      volumes:
+        - name: nfs-client-root
+          nfs:
+            server: 192.168.10.3
+            path: /mnt/shared-disk/nfs
