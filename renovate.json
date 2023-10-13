@@ -11,7 +11,7 @@
     "every 1 hour after 00:00 and before 23:59 every day"
   ],
   "argocd": [
-    "fileMatch": "\\.yaml|\\.yml$"
+    "fileMatch": "\\(.yaml|.yml)$"
   ],
   "major": {
     "enabled": false
