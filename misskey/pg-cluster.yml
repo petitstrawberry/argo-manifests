@@ -8,8 +8,8 @@ spec:
   instances: 3
   primaryUpdateStrategy: unsupervised
   imageName: ghcr.io/cloudnative-pg/postgresql:15
-  # minSyncReplicas: 1
-  # maxSyncReplicas: 2
+  minSyncReplicas: 1
+  maxSyncReplicas: 2
   storage:
     pvcTemplate:
       accessModes:
@@ -38,48 +38,49 @@ spec:
       max_parallel_workers: "4"
       max_parallel_maintenance_workers: "2"
 
-  bootstrap:
-    recovery:
-      database: misskey
-      owner: misskey
-      # secretsは別のプライベートリポジトリに置いてる
-      secret:
-        name: postgres-local-user-secret
-      backup:
-        name: backup-misskey-1697155200
-    # initdb:
-    #   database: misskey
-    #   owner: misskey
-    #   # secretsは別のプライベートリポジトリに置いてる
-    #   secret:
-    #     name: postgres-local-user-secret
-#   # backup
-#   backup:
-#     barmanObjectStore:
-#       destinationPath: "s3://misskey-db-backup/"
-#       endpointURL: "https://axknve1vrtoq.compat.objectstorage.ap-osaka-1.oraclecloud.com"
-#       # Secretsは別のプライベートリポジトリに置いてる
-#       s3Credentials:
-#         accessKeyId:
-#           name: creds
-#           key: ACCESS_KEY_ID
-#         secretAccessKey:
-#           name: creds
-#           key: ACCESS_SECRET_KEY
-#       wal:
-#         compression: gzip
-#     retentionPolicy: "7d" # 7日で削除
+  # bootstrap:
+  #   recovery:
+  #     database: misskey
+  #     owner: misskey
+  #     # secretsは別のプライベートリポジトリに置いてる
+  #     secret:
+  #       name: postgres-local-user-secret
+  #     backup:
+  #       name: backup-misskey-1697155200
+  # initdb:
+  #   database: misskey
+  #   owner: misskey
+  #   # secretsは別のプライベートリポジトリに置いてる
+  #   secret:
+  #     name: postgres-local-user-secret
 
-#   monitoring:
-#     enablePodMonitor: true
-# ---
-# apiVersion: postgresql.cnpg.io/v1
-# kind: ScheduledBackup
-# metadata:
-#   name: backup-misskey
-#   namespace: misskey
-# spec:
-#   schedule: "0 0 0 * * *"
-#   backupOwnerReference: self
-#   cluster:
-#     name: misskey-postgres-cluster
+  # backup
+  backup:
+    barmanObjectStore:
+      destinationPath: "s3://misskey-db-backup/"
+      endpointURL: "https://axknve1vrtoq.compat.objectstorage.ap-osaka-1.oraclecloud.com"
+      # Secretsは別のプライベートリポジトリに置いてる
+      s3Credentials:
+        accessKeyId:
+          name: creds
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: creds
+          key: ACCESS_SECRET_KEY
+      wal:
+        compression: gzip
+    retentionPolicy: "7d" # 7日で削除
+
+  monitoring:
+    enablePodMonitor: true
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: backup-misskey
+  namespace: misskey
+spec:
+  schedule: "0 0 0 * * *"
+  backupOwnerReference: self
+  cluster:
+    name: misskey-postgres-cluster
