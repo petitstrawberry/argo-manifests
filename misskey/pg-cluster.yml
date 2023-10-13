@@ -8,8 +8,8 @@ spec:
   instances: 3
   primaryUpdateStrategy: unsupervised
   imageName: ghcr.io/cloudnative-pg/postgresql:15
-  # minSyncReplicas: 1
-  # maxSyncReplicas: 2
+  minSyncReplicas: 1
+  maxSyncReplicas: 2
   storage:
     pvcTemplate:
       accessModes:
@@ -42,6 +42,8 @@ spec:
     recorvery:
       backup:
         name: backup-misskey-1697155200
+        database: misskey
+        owner: misskey
         secret:
           name: postgres-local-user-secret
     # initdb:
