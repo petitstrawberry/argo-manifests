@@ -8,8 +8,8 @@ spec:
   instances: 3
   primaryUpdateStrategy: unsupervised
   imageName: ghcr.io/cloudnative-pg/postgresql:15
-  minSyncReplicas: 1
-  maxSyncReplicas: 2
+  # minSyncReplicas: 1
+  # maxSyncReplicas: 2
   storage:
     pvcTemplate:
       accessModes:
@@ -39,12 +39,17 @@ spec:
       max_parallel_maintenance_workers: "2"
 
   bootstrap:
-    initdb:
-      database: misskey
-      owner: misskey
-      # secretsは別のプライベートリポジトリに置いてる
-      secret:
-        name: postgres-local-user-secret
+    recorvery:
+      backup:
+        name: backup-misskey-1697155200
+        secret:
+          name: postgres-local-user-secret
+    # initdb:
+    #   database: misskey
+    #   owner: misskey
+    #   # secretsは別のプライベートリポジトリに置いてる
+    #   secret:
+    #     name: postgres-local-user-secret
 
   # backup
   backup:
