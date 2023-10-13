@@ -39,45 +39,47 @@ spec:
       max_parallel_maintenance_workers: "2"
 
   bootstrap:
-    recorvery:
+    recovery:
+      database: misskey
+      owner: misskey
+      # secretsは別のプライベートリポジトリに置いてる
+      secret:
+        name: postgres-local-user-secret
       backup:
         name: backup-misskey-1697155200
-        secret:
-          name: postgres-local-user-secret
     # initdb:
     #   database: misskey
     #   owner: misskey
     #   # secretsは別のプライベートリポジトリに置いてる
     #   secret:
     #     name: postgres-local-user-secret
+#   # backup
+#   backup:
+#     barmanObjectStore:
+#       destinationPath: "s3://misskey-db-backup/"
+#       endpointURL: "https://axknve1vrtoq.compat.objectstorage.ap-osaka-1.oraclecloud.com"
+#       # Secretsは別のプライベートリポジトリに置いてる
+#       s3Credentials:
+#         accessKeyId:
+#           name: creds
+#           key: ACCESS_KEY_ID
+#         secretAccessKey:
+#           name: creds
+#           key: ACCESS_SECRET_KEY
+#       wal:
+#         compression: gzip
+#     retentionPolicy: "7d" # 7日で削除
 
-  # backup
-  backup:
-    barmanObjectStore:
-      destinationPath: "s3://misskey-db-backup/"
-      endpointURL: "https://axknve1vrtoq.compat.objectstorage.ap-osaka-1.oraclecloud.com"
-      # Secretsは別のプライベートリポジトリに置いてる
-      s3Credentials:
-        accessKeyId:
-          name: creds
-          key: ACCESS_KEY_ID
-        secretAccessKey:
-          name: creds
-          key: ACCESS_SECRET_KEY
-      wal:
-        compression: gzip
-    retentionPolicy: "7d" # 7日で削除
-
-  monitoring:
-    enablePodMonitor: true
----
-apiVersion: postgresql.cnpg.io/v1
-kind: ScheduledBackup
-metadata:
-  name: backup-misskey
-  namespace: misskey
-spec:
-  schedule: "0 0 0 * * *"
-  backupOwnerReference: self
-  cluster:
-    name: misskey-postgres-cluster
+#   monitoring:
+#     enablePodMonitor: true
+# ---
+# apiVersion: postgresql.cnpg.io/v1
+# kind: ScheduledBackup
+# metadata:
+#   name: backup-misskey
+#   namespace: misskey
+# spec:
+#   schedule: "0 0 0 * * *"
+#   backupOwnerReference: self
+#   cluster:
+#     name: misskey-postgres-cluster
