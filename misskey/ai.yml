@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ai-data-pvc
+  namespace: misskey
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai
+  namespace: misskey
+  labels:
+    app: ai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ai
+  template:
+    metadata:
+      labels:
+        app: ai
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: ai
+          image: petitstrawberry/ai:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /ai/data
+              name: ai-volume
+            - mountPath: /ai/config.json
+              subPath: config.json
+              name: ai-conf-file
+      volumes:
+        - name: ai-volume
+          persistentVolumeClaim:
+            claimName: ai-data-pvc
+        - name: ai-conf-file
+          configMap:
+            name: ai-config
+            items:
+              - key: config.json
+                path: config.json
