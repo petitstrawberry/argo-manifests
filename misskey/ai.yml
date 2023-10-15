@@ -39,6 +39,15 @@ spec:
             - mountPath: /ai/config.json
               subPath: config.json
               name: ai-conf-file
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  [
+                    "/bin/sh",
+                    "-c",
+                    "wget -O /ai/font.ttf https://raw.githubusercontent.com/notofonts/noto-cjk/main/google-fonts/NotoSansJP%5Bwght%5D.ttf",
+                  ]
       volumes:
         - name: ai-volume
           persistentVolumeClaim:
