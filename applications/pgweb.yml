@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pgweb
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.ectobit.com
+    targetRevision: 0.1.9
+    chart: pgweb
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: pgweb
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
