@@ -11,9 +11,9 @@ spec:
     chart: argo-cd
     helm:
       parameters:
-        - name: "service.type"
+        - name: "server.service.type"
           value: "LoadBalancer"
-        - name: "service.loadBalancerIP"
+        - name: "server.service.loadBalancerIP"
           value: "192.168.10.101"
           
   destination:
