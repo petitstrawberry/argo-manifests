@@ -9,12 +9,17 @@ spec:
     repoURL: https://argoproj.github.io/argo-helm
     targetRevision: 5.46.8
     chart: argo-cd
-
+    helm:
+      parameters:
+        - name: "service.type"
+          value: "LoadBalancer"
+        - name: "service.loadBalancerIP"
+          value: "192.168.10.101"
+          
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
     automated: {}
     syncOptions:
-      - ServerSideApply=true
       - CreateNamespace=true
