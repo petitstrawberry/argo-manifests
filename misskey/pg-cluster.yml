@@ -69,7 +69,7 @@ spec:
           key: ACCESS_SECRET_KEY
       wal:
         compression: gzip
-    retentionPolicy: "7d" # 7日で削除
+    retentionPolicy: "3d" # 3日で削除
 
   monitoring:
     enablePodMonitor: true
