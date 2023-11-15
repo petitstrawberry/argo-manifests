@@ -69,6 +69,8 @@ spec:
           key: ACCESS_SECRET_KEY
       wal:
         compression: gzip
+      data:
+        compression: bzip2
     retentionPolicy: "3d" # 3日で削除
 
   monitoring:
