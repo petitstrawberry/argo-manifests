@@ -45,9 +45,9 @@ spec:
       # secretsは別のプライベートリポジトリに置いてる
       secret:
         name: postgres-local-user-secret
-      source: cluster-backup
-    #   backup:
-    #     name: backup-misskey-20231115000000
+      # source: cluster-backup
+      backup:
+        name: backup-example
     # initdb:
     #   database: misskey
     #   owner: misskey
@@ -55,18 +55,18 @@ spec:
     #   secret:
     #     name: postgres-local-user-secret
 
-  externalClusters:
-   - name: cluster-backup
-     barmanObjectStore:
-      destinationPath: "s3://misskey-db-backup/"
-      endpointURL: "https://axknve1vrtoq.compat.objectstorage.ap-osaka-1.oraclecloud.com"
-      # Secretsは別のプライベートリポジトリに置いてる
-      s3Credentials:
-        accessKeyId:
-          name: creds
-          key: ACCESS_KEY_ID
-        secretAccessKey:
-          name: creds
-          key: ACCESS_SECRET_KEY
-      wal:
-        compression: gzip
+  # externalClusters:
+  #  - name: cluster-backup
+  #    barmanObjectStore:
+  #     destinationPath: "s3://misskey-db-backup/"
+  #     endpointURL: "https://axknve1vrtoq.compat.objectstorage.ap-osaka-1.oraclecloud.com"
+  #     # Secretsは別のプライベートリポジトリに置いてる
+  #     s3Credentials:
+  #       accessKeyId:
+  #         name: creds
+  #         key: ACCESS_KEY_ID
+  #       secretAccessKey:
+  #         name: creds
+  #         key: ACCESS_SECRET_KEY
+  #     wal:
+  #       compression: gzip
