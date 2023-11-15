@@ -12,7 +12,7 @@ spec:
       targetRevision: 1.10.1
       chart: postgres-operator
     - repoURL: https://opensource.zalando.com/postgres-operator/charts/postgres-operator-ui
-      targetRevision: 1.10.0
+      targetRevision: 1.10.1
       chart: postgres-operator-ui
 
   syncPolicy:
