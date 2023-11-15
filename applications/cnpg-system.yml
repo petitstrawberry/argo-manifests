@@ -2,14 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cnpg-system
+  namespace: argocd
 spec:
-  destination:
-    namespace: default
-    server: https://kubernetes.default.svc
   project: default
   source:
-    path: cnpg-system
-    repoURL: https://github.com/petitstrawberry/argo-manifests.git
-    targetRevision: main
+    repoURL: https://cloudnative-pg.github.io/charts
+    targetRevision: 0.19.1
+    chart: cnpg
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cnpg-system
   syncPolicy:
     automated: {}
+    syncOptions:
+      - CreateNamespace=true
