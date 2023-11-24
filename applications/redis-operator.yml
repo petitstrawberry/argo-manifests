@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: redis-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: redis-operator
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: manifests/kustomize/overlays/full
+    repoURL: https://github.com/spotahome/redis-operator.git
+    targetRevision: v1.2.4
+  syncPolicy:
+    automated: {}
