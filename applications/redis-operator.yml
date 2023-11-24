@@ -12,5 +12,17 @@ spec:
     path: manifests/kustomize/overlays/full
     repoURL: https://github.com/spotahome/redis-operator.git
     targetRevision: v1.2.4
+    kustomize:
+      patches:
+        - target:
+            kind: ClusterRoleBinding
+            name: redis-operator
+          patch: |-
+            - op: add
+              path: /subjects/0/namespace
+              value: redis-operator
   syncPolicy:
     automated: {}
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true
