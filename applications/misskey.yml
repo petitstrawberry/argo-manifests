@@ -20,5 +20,9 @@ spec:
     - repoURL: https://meilisearch.github.io/meilisearch-kubernetes
       targetRevision: 0.3.0
       chart: meilisearch
+      helm:
+        parameters:
+          - name: "persistence"
+            value: true
   syncPolicy:
     automated: {}
