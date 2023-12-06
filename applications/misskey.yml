@@ -22,7 +22,7 @@ spec:
       chart: meilisearch
       helm:
         parameters:
-          - name: "persistence"
-            value: true
+          - name: "persistence.enabled"
+            value: "true"
   syncPolicy:
     automated: {}
