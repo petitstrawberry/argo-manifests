@@ -16,5 +16,9 @@ spec:
     - path: misskey
       repoURL: https://github.com/petitstrawberry/argo-secrets.git
       targetRevision: main
+
+    - repoURL: https://meilisearch.github.io/meilisearch-kubernetes
+      targetRevision: 0.3.0
+      chart: meilisearch
   syncPolicy:
     automated: {}
