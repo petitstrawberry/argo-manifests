@@ -24,5 +24,7 @@ spec:
         parameters:
           - name: "persistence.enabled"
             value: "true"
+          - name: "persistence.storageClass"
+            value: ""
   syncPolicy:
     automated: {}
