@@ -21,10 +21,14 @@ spec:
       targetRevision: 0.3.0
       chart: meilisearch
       helm:
-        parameters:
-          - name: "persistence.enabled"
-            value: "true"
-          - name: "persistence.storageClass"
-            value: ""
+        valuesObject:
+          persistence:
+            enabled: true
+            storageClass: nfs-client
+          environment:
+            MEILI_ENV: production
+          envFrom:
+            - secretRef:
+                name: meilisearch-secrets
   syncPolicy:
     automated: {}
