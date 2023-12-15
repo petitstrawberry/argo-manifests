@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: omochimc
+  namespace: argocd
+spec:
+  destination:
+    namespace: omochimc
+    server: https://kubernetes.default.svc
+  project: default
+  sources:
+    - path: omochimc
+      repoURL: https://github.com/petitstrawberry/argo-manifests.git
+      targetRevision: main
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true

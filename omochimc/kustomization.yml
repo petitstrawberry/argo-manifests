@@ -1,0 +1,9 @@
+nameSuffix: "-paper"
+commonLabels:
+  server: paper
+bases:
+  - https://github.com/itzg/docker-minecraft-server.git/kustomize/base?ref=2023.12.1
+configMapGenerator:
+  - name: mc
+    envs:
+      - mc.env
