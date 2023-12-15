@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mc
+spec:
+  template:
+    spec:
+      containers:
+        - name: mc
+          volumeMounts:
+            - mountPath: /extras
+              name: mc-plugins-list-file
+      volumes:
+        - name: mc-plugins-list-file
+          configMap:
+            name: mc-plugins-list-paper
