@@ -4,7 +4,7 @@ data:
     # geyser
     https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
     # floodgate
-    https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+    # https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
 kind: ConfigMap
 metadata:
