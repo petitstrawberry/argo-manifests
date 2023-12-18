@@ -8,9 +8,21 @@ spec:
       containers:
         - name: mc
           volumeMounts:
-            - mountPath: /extras
-              name: mc-plugins-list-file
+            - name: mc-plugins-list-file
+              mountPath: /extras
+            - name: mc-server-configs
+              mountPath: "/config"
+              readOnly: true
+
       volumes:
         - name: mc-plugins-list-file
           configMap:
-            name: mc-plugins-list-paper
+            name: mc-plugins-list
+        - name: mc-server-configs
+          configMap:
+            name: mc-server-configs
+            items:
+            - key: "paper-global.yml"
+              path: "paper-global.yml"
+            - key: "paper-world-defaults.yml"
+              path: "paper-world-defaults.yml"

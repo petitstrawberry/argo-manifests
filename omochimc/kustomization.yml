@@ -1,10 +1,10 @@
-nameSuffix: "-paper"
 commonLabels:
   server: paper
 bases:
   - https://github.com/itzg/docker-minecraft-server.git/kustomize/base?ref=2023.12.2
 resources:
   - plugins.yml
+  - configs.yml
 patchesStrategicMerge:
   - statefulset.yml
   - service.yml
