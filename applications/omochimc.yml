@@ -12,6 +12,9 @@ spec:
     - path: omochimc
       repoURL: https://github.com/petitstrawberry/argo-manifests.git
       targetRevision: main
+    - path: omochimc
+      repoURL: https://github.com/petitstrawberry/argo-secrets.git
+      targetRevision: main
   syncPolicy:
     automated: {}
     syncOptions:

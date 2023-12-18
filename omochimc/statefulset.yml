@@ -24,5 +24,3 @@ spec:
             items:
             - key: "paper-global.yml"
               path: "paper-global.yml"
-            - key: "paper-world-defaults.yml"
-              path: "paper-world-defaults.yml"
