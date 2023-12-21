@@ -1,0 +1,15 @@
+commonLabels:
+  server: proxy
+
+resources:
+  - service.yml
+  - statefulset.yml
+
+configMapGenerator:
+  - name: proxy
+    envs:
+      - proxy.env
+  - name: config
+    files:
+      - config/forwarding.secret
+      - config/velocity.toml

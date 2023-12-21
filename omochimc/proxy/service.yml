@@ -1,18 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mc
+  name: proxy
 spec:
   ports:
     - name: minecraft
       port: 25565
-      targetPort: 25565
+      targetPort: 25577
     - name: minecraft-be
       protocol: UDP
       port: 19132
       targetPort: 19132
-    - name: map
-      port: 8100
-      targetPort: 8100
   type: LoadBalancer
   LoadBalancerIP: 192.168.10.103

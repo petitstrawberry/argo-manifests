@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: StatefulSet
+
+metadata:
+  name: proxy
+  labels:
+    app: proxy
+spec:
+  replicas: 1
+  serviceName: proxy
+  selector:
+    matchLabels:
+      server: proxy
+  template:
+    metadata:
+      labels:
+        app: proxy
+    spec:
+      containers:
+        - image: itzg/bungeecord:java17
+          name: proxy
+          env:
+            - name: TYPE
+              value: VELOCITY
+            - name: ENABLE_RCON
+              value: "false"
+            - name: INIT_MEMORY
+              value: 250M
+            - name: MAX_MEMORY
+              value: 1G
+          volumeMounts:
+            - name: data
+              mountPath: /server
+            - name: config
+              mountPath: /config
+              readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: config
+
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 500Mi
