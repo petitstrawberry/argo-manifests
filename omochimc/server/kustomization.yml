@@ -1,0 +1,15 @@
+commonLabels:
+  server: paper
+bases:
+  - https://github.com/itzg/docker-minecraft-server.git/kustomize/base?ref=2023.12.2
+
+patchesStrategicMerge:
+  - statefulset.yml
+  - service.yml
+configMapGenerator:
+  - name: mc
+    envs:
+      - mc.env
+  - name: mc-plugins-list
+    files:
+      - plugins.txt

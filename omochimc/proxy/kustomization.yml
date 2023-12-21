@@ -1,0 +1,11 @@
+commonLabels:
+  server: proxy
+
+resources:
+  - service.yml
+  - statefulset.yml
+
+configMapGenerator:
+  - name: proxy
+    envs:
+      - proxy.env
