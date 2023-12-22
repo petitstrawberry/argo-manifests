@@ -33,7 +33,7 @@ spec:
           projected:
             sources:
               - configMap:
-                name: proxy-config
+                  name: proxy-config
               - secret:
                   name: proxy-config-secret
 
