@@ -10,6 +10,8 @@ spec:
           envFrom:
             - secretRef:
                 name: mc-config-secret
+            - configMapRef:
+                name: mc
           volumeMounts:
             - name: mc-plugins-list-file
               mountPath: /extras
