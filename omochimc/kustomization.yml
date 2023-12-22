@@ -1,3 +1,4 @@
 bases:
   - server/
   - proxy/
+  - github.com/petitstrawberry/argo-secrets/omochimc
