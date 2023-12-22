@@ -34,8 +34,6 @@ spec:
             sources:
               - configMap:
                 name: config
-              - secret:
-                name: config-secret
 
   volumeClaimTemplates:
     - metadata:
