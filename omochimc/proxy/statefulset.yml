@@ -19,15 +19,9 @@ spec:
       containers:
         - image: itzg/bungeecord:java17
           name: proxy
-          env:
-            - name: TYPE
-              value: VELOCITY
-            - name: ENABLE_RCON
-              value: "false"
-            - name: INIT_MEMORY
-              value: 250M
-            - name: MAX_MEMORY
-              value: 1G
+          envFrom:
+            - configMapRef:
+                name: proxy
           volumeMounts:
             - name: data
               mountPath: /server
