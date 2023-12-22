@@ -11,5 +11,4 @@ configMapGenerator:
       - proxy.env
   - name: config
     files:
-      - config/forwarding.secret
       - config/velocity.toml

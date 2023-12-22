@@ -13,3 +13,6 @@ configMapGenerator:
   - name: mc-plugins-list
     files:
       - plugins.txt
+  - name: mc-config-files
+    files:
+      - config/paper-global.yml

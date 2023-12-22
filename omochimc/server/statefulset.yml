@@ -10,7 +10,7 @@ spec:
           volumeMounts:
             - name: mc-plugins-list-file
               mountPath: /extras
-            - name: mc-server-configs
+            - name: mc-config-files
               mountPath: "/config"
               readOnly: true
 
@@ -18,9 +18,6 @@ spec:
         - name: mc-plugins-list-file
           configMap:
             name: mc-plugins-list
-        - name: mc-server-configs
+        - name: mc-config-files
           configMap:
-            name: mc-server-configs
-            items:
-            - key: "paper-global.yml"
-              path: "paper-global.yml"
+            name: mc-config-files

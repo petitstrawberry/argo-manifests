@@ -29,9 +29,13 @@ spec:
               mountPath: /config
               readOnly: true
       volumes:
-      - name: config
-        configMap:
-          name: config
+        - name: config
+          projected:
+            sources:
+              - configMap:
+                name: config
+              - secret:
+                name: config
 
   volumeClaimTemplates:
     - metadata:
