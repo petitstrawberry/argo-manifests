@@ -9,6 +9,6 @@ configMapGenerator:
   - name: proxy
     envs:
       - proxy.env
-  - name: config
+  - name: proxy-config
     files:
       - config/velocity.toml

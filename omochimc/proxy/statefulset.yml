@@ -33,7 +33,9 @@ spec:
           projected:
             sources:
               - configMap:
-                name: config
+                name: proxy-config
+              - secret:
+                  name: proxy-config-secret
 
   volumeClaimTemplates:
     - metadata:
