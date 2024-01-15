@@ -30,5 +30,8 @@
       "groupName": "eslint",
       "automerge": true
     }
+  ],
+  "ignoreDeps": [
+    "meilisearch"
   ]
 }
