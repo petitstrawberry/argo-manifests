@@ -31,4 +31,5 @@ spec:
             - secretRef:
                 name: meilisearch-secrets
   syncPolicy:
-    automated: {}
+    automated:
+      selfHeal: true

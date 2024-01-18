@@ -15,11 +15,12 @@ spec:
           value: "LoadBalancer"
         - name: "server.service.loadBalancerIP"
           value: "192.168.10.101"
-          
+
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
-    automated: {}
+    automated:
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true

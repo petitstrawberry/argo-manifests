@@ -27,6 +27,7 @@ spec:
       jsonPointers:
       - /spec/conversion/webhook/clientConfig/caBundle
   syncPolicy:
-    automated: {}
+    automated:
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true

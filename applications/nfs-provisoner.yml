@@ -13,4 +13,5 @@ spec:
     repoURL: https://github.com/petitstrawberry/argo-manifests.git
     targetRevision: main
   syncPolicy:
-    automated: {}
+    automated:
+      selfHeal: true

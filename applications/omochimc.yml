@@ -16,6 +16,7 @@ spec:
     #   repoURL: https://github.com/petitstrawberry/argo-secrets.git
     #   targetRevision: main
   syncPolicy:
-    automated: {}
+    automated:
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
