@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: palworld-server
+  namespace: argocd
+spec:
+  destination:
+    namespace: palworld-server
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: palworld-server
+    repoURL: https://github.com/petitstrawberry/argo-manifests.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-service
+  namespace: palworld-server
+spec:
+  selector:
+    app: server
+  ports:
+    - port: 8211
+      targetPort: 8211
+      protocol: UDP
+      name: gameport
+    - port: 27015
+      targetPort: 27015
+      protocol: UDP
+      name: queryport
+  type: LoadBalancer
+  LoadBalancerIP: 192.168.10.104
