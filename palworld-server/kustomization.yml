@@ -3,6 +3,8 @@ kind: Kustomization
 commonLabels:
   server: palworld-server
 namespace: palworld-server
+bases:
+  - github.com/petitstrawberry/argo-secrets/palworld-server
 resources:
   - service.yml
   - statefulset.yml

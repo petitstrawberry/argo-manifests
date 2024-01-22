@@ -30,6 +30,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: server-conf
+            - secretRef:
+                name: server-secret
 
       volumes:
         - name: palworld-server-data-volume
