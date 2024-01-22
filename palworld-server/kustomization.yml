@@ -8,7 +8,6 @@ bases:
 resources:
   - service.yml
   - statefulset.yml
-  - pvc.yml
 
 configMapGenerator:
   - name: server-conf
