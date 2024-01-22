@@ -27,6 +27,9 @@ spec:
               protocol: UDP
             - containerPort: 8211
               protocol: UDP
+          envFrom:
+            - configMapRef:
+                name: server-conf
 
       volumes:
         - name: palworld-server-data-volume
