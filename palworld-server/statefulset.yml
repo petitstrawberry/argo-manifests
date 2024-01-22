@@ -21,7 +21,7 @@ spec:
           imagePullPolicy: Always
           volumeMounts:
             - mountPath: /palworld/
-              name: palworld-server-data-volume
+              name: palworld-server-data
           ports:
             - containerPort: 27015
               protocol: UDP
@@ -33,7 +33,13 @@ spec:
             - secretRef:
                 name: server-secret
 
-      volumes:
-        - name: palworld-server-data-volume
-          persistentVolumeClaim:
-            claimName: palworld-server-data-pvc
+
+  volumeClaimTemplates:
+  - metadata:
+      name: palworld-server-data
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
