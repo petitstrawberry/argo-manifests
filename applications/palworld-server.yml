@@ -8,10 +8,13 @@ spec:
     namespace: palworld-server
     server: https://kubernetes.default.svc
   project: default
-  source:
-    path: palworld-server
-    repoURL: https://github.com/petitstrawberry/argo-manifests.git
-    targetRevision: main
+  sources:
+    - path: palworld-server
+      repoURL: https://github.com/petitstrawberry/argo-manifests.git
+      targetRevision: main
+    - path: palworld-server
+      repoURL: https://github.com/petitstrawberry/argo-secrets.git
+      targetRevision: main
   syncPolicy:
     automated:
       selfHeal: true
