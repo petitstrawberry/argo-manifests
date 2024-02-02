@@ -8,15 +8,15 @@ spec:
     server: 'https://kubernetes.default.svc' # change to your server
   sources:
     - ref: values
-      path: kubescape
       repoURL: https://github.com/petitstrawberry/argo-secrets.git
       targetRevision: main
+      path: kubescape
     - path: charts/kubescape-operator
       repoURL: 'https://github.com/kubescape/helm-charts'
       targetRevision: HEAD
       helm:
         valueFiles:
-          - \$values/values.yml
+          - '\$values/values.yml'
   project: default
   syncPolicy:
     automated:
