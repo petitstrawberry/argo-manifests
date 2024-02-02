@@ -16,7 +16,7 @@ spec:
       targetRevision: HEAD
       helm:
         valueFiles:
-          - $values/values.yml
+          - \$values/values.yml
   project: default
   syncPolicy:
     automated:
