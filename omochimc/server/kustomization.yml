@@ -1,7 +1,7 @@
 commonLabels:
   server: paper
 bases:
-  - https://github.com/itzg/docker-minecraft-server.git/kustomize/base?ref=2023.12.2
+  - https://github.com/itzg/docker-minecraft-server.git/kustomize/base?ref=20200413
 
 patchesStrategicMerge:
   - statefulset.yml
