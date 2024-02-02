@@ -16,10 +16,11 @@
   "argocd": {
     "fileMatch": ["applications/.+\\.(yaml|yml)$"]
   },
-  "major": {
-    "enabled": false
-  },
   "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
