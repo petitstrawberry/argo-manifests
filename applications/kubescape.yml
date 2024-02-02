@@ -10,13 +10,12 @@ spec:
     - ref: values
       repoURL: https://github.com/petitstrawberry/argo-secrets.git
       targetRevision: main
-      path: kubescape
     - path: charts/kubescape-operator
       repoURL: 'https://github.com/kubescape/helm-charts'
       targetRevision: HEAD
       helm:
         valueFiles:
-          - '\$values/values.yml'
+          - '$values/kubescape/values.yml'
   project: default
   syncPolicy:
     automated:
