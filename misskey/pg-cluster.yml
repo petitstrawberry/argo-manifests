@@ -4,6 +4,8 @@ kind: Cluster
 metadata:
   name: misskey-postgres-cluster
   namespace: misskey
+  annotations:
+    cnpg.io/skipEmptyWalArchiveCheck: enabled
 spec:
   instances: 3
   primaryUpdateStrategy: unsupervised
@@ -17,7 +19,7 @@ spec:
       storageClassName: nfs-client
       resources:
         requests:
-          storage: 70Gi
+          storage: 30Gi
 
   postgresql:
     parameters:
@@ -42,6 +44,9 @@ spec:
     recovery:
       database: misskey
       owner: misskey
+      # secretsは別のプライベートリポジトリに置いてる
+      secret:
+        name: postgres-local-user-secret
       backup:
         name: backup-misskey-20240212000000
     # initdb:
