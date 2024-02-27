@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: thijsvanloef/palworld-server-docker:v0.28.2
+          image: thijsvanloef/palworld-server-docker:v0.29.0
           imagePullPolicy: Always
           volumeMounts:
             - mountPath: /palworld/
