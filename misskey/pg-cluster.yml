@@ -49,12 +49,12 @@ spec:
         name: postgres-local-user-secret
       backup:
         name: backup-misskey-20240313000000
-    initdb:
-      database: misskey
-      owner: misskey
-      # secretsは別のプライベートリポジトリに置いてる
-      secret:
-        name: postgres-local-user-secret
+    # initdb:
+    #   database: misskey
+    #   owner: misskey
+    #   # secretsは別のプライベートリポジトリに置いてる
+    #   secret:
+    #     name: postgres-local-user-secret
 
   # backup
   backup:
