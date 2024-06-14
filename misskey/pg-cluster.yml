@@ -48,7 +48,7 @@ spec:
       secret:
         name: postgres-local-user-secret
       backup:
-        name: backup-misskey-20240313000000
+        name: backup-misskey-20240610000000
     # initdb:
     #   database: misskey
     #   owner: misskey
