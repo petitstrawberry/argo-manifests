@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 7.6.0
+    targetRevision: 7.6.1
     chart: argo-cd
     helm:
       parameters:
