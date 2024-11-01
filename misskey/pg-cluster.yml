@@ -41,20 +41,20 @@ spec:
       max_parallel_maintenance_workers: "2"
 
   bootstrap:
-    recovery:
-      database: misskey
-      owner: misskey
-      # secretsは別のプライベートリポジトリに置いてる
-      secret:
-        name: postgres-local-user-secret
-      backup:
-        name: backup-misskey-20240610000000
-    # initdb:
+    # recovery:
     #   database: misskey
     #   owner: misskey
     #   # secretsは別のプライベートリポジトリに置いてる
     #   secret:
     #     name: postgres-local-user-secret
+    #   backup:
+    #     name: backup-misskey-20240610000000
+    initdb:
+      database: misskey
+      owner: misskey
+      # secretsは別のプライベートリポジトリに置いてる
+      secret:
+        name: postgres-local-user-secret
 
   # backup
   backup:
