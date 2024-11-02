@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-vcluster
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: vcluster
+    repoURL: https://charts.loft.sh
+    targetRevision: 0.20.0
+    helm:
+      releaseName: test-vcluster
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: test-vcluster
