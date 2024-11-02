@@ -8,7 +8,7 @@ spec:
   source:
     chart: vcluster
     repoURL: https://charts.loft.sh
-    targetRevision: 0.20.0
+    targetRevision: 0.20.4
     helm:
       releaseName: test-vcluster
   destination:
