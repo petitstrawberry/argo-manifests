@@ -26,6 +26,9 @@ spec:
             statefulSet:
               scheduling:
                 podManagementPolicy: OrderedReady
+            proxy:
+              extraSANs:
+              - 192.168.10.80
           sync:
             toHost:
               persistentVolumes:
