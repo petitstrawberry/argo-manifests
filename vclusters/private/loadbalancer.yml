@@ -13,4 +13,4 @@ spec:
       targetPort: 8443
       protocol: TCP
   type: LoadBalancer
-  LoadBalancerIP: 192.168.10.80
+  loadBalancerIP: 192.168.10.80
