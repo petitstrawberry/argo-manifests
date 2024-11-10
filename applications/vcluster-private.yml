@@ -17,7 +17,7 @@ spec:
                 deploy:
                   enabled: true
             distro:
-              k8s:
+              k3s:
                 enabled: true
             statefulSet:
               scheduling:
