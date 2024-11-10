@@ -6,10 +6,14 @@ metadata:
 spec:
   project: default
   sources:
+    - path: vcluster/private
+      repoURL: https://github.com/petitstrawberry/argo-manifests.git
+      targetRevision: main
     - chart: vcluster
       repoURL: https://charts.loft.sh
       targetRevision: 0.20.0
       helm:
+        releaseName: vcluster-private
         valuesObject:
           controlPlane:
             backingStore:
@@ -28,7 +32,6 @@ spec:
                 enabled: true
               storageClasses:
                 enabled: true
-
 
   destination:
     server: https://kubernetes.default.svc
