@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vcluster-private
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - chart: vcluster
+      repoURL: https://charts.loft.sh
+      targetRevision: 0.20.0
+      helm:
+        valuesObject:
+          controlPlane:
+            backingStore:
+              etcd:
+                deploy:
+                  enabled: true
+            distro:
+              k8s:
+                enabled: true
+            statefulSet:
+              scheduling:
+                podManagementPolicy: OrderedReady
+          sync:
+            toHost:
+              persistentVolumes:
+                enabled: true
+              storageClasses:
+                enabled: true
+
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vcluster-private
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true
