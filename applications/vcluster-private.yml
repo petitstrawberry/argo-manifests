@@ -30,7 +30,7 @@ spec:
                 podManagementPolicy: OrderedReady
             proxy:
               extraSANs:
-              - 192.168.10.80
+              - private.k8s.ichigo.dev
           sync:
             toHost:
               persistentVolumes:
