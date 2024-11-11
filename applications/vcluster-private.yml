@@ -16,7 +16,7 @@ spec:
         releaseName: vcluster-private
         valuesObject:
           exportKubeConfig:
-            server: https://192.168.10.80:8443
+            server: https://private.k8s.ichigo.dev
           controlPlane:
             backingStore:
               etcd:
