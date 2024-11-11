@@ -10,7 +10,7 @@ spec:
     targetRevision: 4.11.3
     chart: ingress-nginx
     helm:
-      valuesObject
+      valuesObject:
         contoller:
           service:
             loadBalancerIP: 192.168.10.100
