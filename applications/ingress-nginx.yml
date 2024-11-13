@@ -15,7 +15,7 @@ spec:
           service:
             loadBalancerIP: 192.168.10.100
           extraArgs:
-            enable-ssl-passthrough: true
+            enable-ssl-passthrough: ""
 
   destination:
     server: https://kubernetes.default.svc
