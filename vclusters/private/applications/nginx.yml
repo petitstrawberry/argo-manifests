@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     namespace: ingress
-    server: https://192.168.10.80
+    server: https://private.k8s.ichigo.dev
   project: default
   sources:
     - path: vclusters/private/nginx
