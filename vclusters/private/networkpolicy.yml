@@ -14,3 +14,19 @@ spec:
       - podSelector: {}
   ingress:
     - {}
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-vcluster-engress-policy
+  namespace: vcluster-private
+spec:
+  podSelector:
+    matchLabels:
+      app: vcluster
+  policyTypes:
+  - Egress
+  egress:
+    - to:
+      - podSelector: {}
