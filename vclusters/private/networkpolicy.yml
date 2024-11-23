@@ -1,14 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-internal-policy
+  name: default-allow-ingress-deny-engress-policy
   namespace: vcluster-private
 spec:
-  podSelector: 
+  podSelector:
     matchLabels: {}
   policyTypes:
   - Egress
+  - Ingress
   egress:
     - to:
       - podSelector: {}
-
+  ingress:
+    - {}
