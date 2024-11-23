@@ -37,7 +37,14 @@ spec:
                 enabled: true
               storageClasses:
                 enabled: true
-
+          policies:
+            podSecurityStandard: baseline
+            resourceQuota:
+              enabled: true
+            limitRange:
+              enabled: true
+            networkPolicy:
+              enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: vcluster-private
