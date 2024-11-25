@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-all-in-namespace-policy
-  namespace: vcluster-private
+  namespace: vcluster-public
 spec:
   podSelector: {}
   policyTypes:
@@ -19,7 +19,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-external-namespace-policy
-  namespace: vcluster-private
+  namespace: vcluster-public
 spec:
   podSelector:
     matchLabels:
