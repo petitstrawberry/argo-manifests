@@ -19,7 +19,7 @@ spec:
             server: https://private.k8s.ichigo.dev
           controlPlane:
             distro:
-              k3s:
+              k8s:
                 enabled: true
             statefulSet:
               scheduling:
