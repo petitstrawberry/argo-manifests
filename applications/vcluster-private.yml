@@ -24,6 +24,18 @@ spec:
             statefulSet:
               scheduling:
                 podManagementPolicy: OrderedReady
+              highAvailability:
+                replicas: 3
+            backingStore:
+              etcd:
+                deploy:
+                  enabled: true
+                  statefulSet:
+                    highAvailability:
+                      replicas: 3
+                    persistance:
+                      volumeClaim:
+                        storageClass: local-storage
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
