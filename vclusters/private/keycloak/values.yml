@@ -1,0 +1,6 @@
+keycloak:
+  ingress:
+    enabled: true
+    path: /
+    hosts:
+      - keycloak.ichigo.dev
