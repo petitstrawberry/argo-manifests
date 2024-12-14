@@ -33,7 +33,7 @@ spec:
                   statefulSet:
                     highAvailability:
                       replicas: 3
-                    persistance:
+                    persistence:
                       volumeClaim:
                         storageClass: local-storage
             proxy:
