@@ -18,10 +18,6 @@ spec:
           exportKubeConfig:
             server: https://private.k8s.ichigo.dev
           controlPlane:
-            backingStore:
-              etcd:
-                deploy:
-                  enabled: true
             distro:
               k3s:
                 enabled: true
