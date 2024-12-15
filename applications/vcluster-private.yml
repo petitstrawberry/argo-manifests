@@ -26,23 +26,16 @@ spec:
                 podManagementPolicy: OrderedReady
               highAvailability:
                 replicas: 1
-            backingStore:
-              etcd:
-                deploy:
-                  enabled: true
-                  statefulSet:
-                    highAvailability:
-                      replicas: 1
-                    persistence:
-                      volumeClaimTemplates:
-                        - metadata:
-                            name: data
-                          spec:
-                            accessModes: [ "ReadWriteOnce" ]
-                            storageClassName: local-storage
-                            resources:
-                              requests:
-                                storage: 8Gi
+              persistence:
+                volumeClaimTemplates:
+                  - metadata:
+                      name: data
+                    spec:
+                      accessModes: [ "ReadWriteOnce" ]
+                      storageClassName: local-storage
+                      resources:
+                        requests:
+                          storage: 4Gi
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
