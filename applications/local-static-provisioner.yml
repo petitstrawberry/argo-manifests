@@ -16,7 +16,7 @@ spec:
               hostDir: /mnt/local-pv
               volumeMode: Filesystem
               fsType: ext4
-              namePattern: “*"
+              storageClass: true
     - path: local-static-provisioner
       repoURL: https://github.com/petitstrawberry/argo-manifests.git
       targetRevision: main
