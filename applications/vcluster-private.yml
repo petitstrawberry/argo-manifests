@@ -52,7 +52,11 @@ spec:
                             storageClassName: local-storage
                             resources:
                               requests:
-                                storage: 4Gi
+                                storage: 8Gi
+                    extraArgs:
+                      - --auto-compaction-mode=periodic
+                      - --auto-compaction-retention=30m
+                      - --quota-backend-bytes=8589934592
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
