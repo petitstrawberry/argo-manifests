@@ -22,8 +22,8 @@ spec:
               k8s:
                 enabled: true
             statefulSet:
-              highAvailability:
-                replicas: 3
+              # highAvailability:
+              #   replicas: 3
               persistence:
                 volumeClaimTemplates:
                   - metadata:
@@ -34,27 +34,23 @@ spec:
                       resources:
                         requests:
                           storage: 4Gi
-            backingStore:
-              etcd:
-                deploy:
-                  enabled: true
-                  statefulSet:
-                    highAvailability:
-                      replicas: 3
-                    persistence:
-                      volumeClaimTemplates:
-                        - metadata:
-                            name: data
-                          spec:
-                            accessModes: [ "ReadWriteOnce" ]
-                            storageClassName: local-storage
-                            resources:
-                              requests:
-                                storage: 8Gi
-                    extraArgs:
-                      - --auto-compaction-mode=periodic
-                      - --auto-compaction-retention=30m
-                      - --quota-backend-bytes=8589934592
+            # backingStore:
+            #   etcd:
+            #     deploy:
+            #       enabled: true
+            #       statefulSet:
+            #         highAvailability:
+            #           replicas: 3
+            #         persistence:
+            #           volumeClaimTemplates:
+            #             - metadata:
+            #                 name: data
+            #               spec:
+            #                 accessModes: [ "ReadWriteOnce" ]
+            #                 storageClassName: local-storage
+            #                 resources:
+            #                   requests:
+            #                     storage: 8Gi
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
