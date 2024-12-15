@@ -17,9 +17,6 @@ spec:
               volumeMode: Filesystem
               fsType: ext4
               storageClass: true
-    - path: local-static-provisioner
-      repoURL: https://github.com/petitstrawberry/argo-manifests.git
-      targetRevision: main
   destination:
     server: https://kubernetes.default.svc
     namespace: local-static-provisioner
