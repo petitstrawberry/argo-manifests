@@ -19,22 +19,39 @@ spec:
             server: https://private.k8s.ichigo.dev
           controlPlane:
             distro:
-              k3s:
+              k8s:
                 enabled: true
             statefulSet:
+              scheduling:
+                podManagementPolicy: OrderedReady
+              highAvailability:
+                replicas: 3
               persistence:
                 volumeClaimTemplates:
                   - metadata:
                       name: data
                     spec:
                       accessModes: [ "ReadWriteOnce" ]
-                      storageClassName: "local-storage"
+                      storageClassName: local-storage
                       resources:
                         requests:
                           storage: 4Gi
+            backingStore:
+              etcd:
+                deploy:
+                  enabled: true
+                  statefulSet:
+                    highAvailability:
+                      replicas: 3
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
+          sync:
+            toHost:
+              persistentVolumes:
+                enabled: true
+              storageClasses:
+                enabled: true
           policies:
             podSecurityStandard: baseline
             resourceQuota:
