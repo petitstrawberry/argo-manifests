@@ -40,9 +40,6 @@ spec:
               etcd:
                 deploy:
                   enabled: true
-                  statefulSet:
-                    highAvailability:
-                      replicas: 3
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
