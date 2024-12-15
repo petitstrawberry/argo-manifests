@@ -22,6 +22,8 @@ spec:
               k8s:
                 enabled: true
             statefulSet:
+              highAvailability:
+                replicas: 3
               persistence:
                 volumeClaimTemplates:
                   - metadata:
