@@ -34,23 +34,21 @@ spec:
                       resources:
                         requests:
                           storage: 4Gi
-            # backingStore:
-            #   etcd:
-            #     deploy:
-            #       enabled: true
-            #       statefulSet:
-            #         highAvailability:
-            #           replicas: 3
-            #         persistence:
-            #           volumeClaimTemplates:
-            #             - metadata:
-            #                 name: data
-            #               spec:
-            #                 accessModes: [ "ReadWriteOnce" ]
-            #                 storageClassName: local-storage
-            #                 resources:
-            #                   requests:
-            #                     storage: 8Gi
+            backingStore:
+              etcd:
+                deploy:
+                  enabled: true
+                  statefulSet:
+                    persistence:
+                      volumeClaimTemplates:
+                        - metadata:
+                            name: data
+                          spec:
+                            accessModes: [ "ReadWriteOnce" ]
+                            storageClassName: local-storage
+                            resources:
+                              requests:
+                                storage: 8Gi
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
