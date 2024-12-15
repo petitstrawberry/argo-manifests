@@ -25,16 +25,16 @@ spec:
               scheduling:
                 podManagementPolicy: OrderedReady
               highAvailability:
-                replicas: 1
+                replicas: 3
             backingStore:
               etcd:
                 deploy:
                   enabled: true
                   statefulSet:
                     highAvailability:
-                      replicas: 1
+                      replicas: 3
                     persistence:
-                      volumeClaim:
+                      volumeClaimTemplates:
                         storageClass: local-storage
             proxy:
               extraSANs:
