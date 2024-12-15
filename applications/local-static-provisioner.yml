@@ -10,8 +10,13 @@ spec:
       targetRevision: 2.0.0
       chart: local-static-provisioner
       helm:
-        valueFiles:
-          - https://raw.githubusercontent.com/petitstrawberry/argo-manifests/refs/heads/main/local-static-provisioner/values.yml
+        valuesObject:
+          classes:
+            - name: local-storage
+              hostDir: /mnt/local-pv
+              volumeMode: Filesystem
+              fsType: ext4
+              namePattern: “*"
     - path: local-static-provisioner
       repoURL: https://github.com/petitstrawberry/argo-manifests.git
       targetRevision: main
