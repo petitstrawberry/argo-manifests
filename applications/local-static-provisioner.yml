@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: local-static-provisioner
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://kubernetes-sigs.github.io/sig-storage-local-static-provisioner
+    targetRevision: 2.6.0
+    chart: local-static-provisioner
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: local-static-provisioner
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
