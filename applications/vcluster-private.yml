@@ -35,12 +35,6 @@ spec:
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
-          sync:
-            toHost:
-              persistentVolumes:
-                enabled: true
-              storageClasses:
-                enabled: true
           policies:
             podSecurityStandard: baseline
             resourceQuota:
