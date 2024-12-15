@@ -33,16 +33,6 @@ spec:
                   statefulSet:
                     highAvailability:
                       replicas: 3
-                    persistence:
-                      volumeClaimTemplates:
-                        - metadata:
-                            name: local-vol
-                          spec:
-                            accessModes: [ "ReadWriteOnce" ]
-                            storageClassName: "local-storage"
-                            resources:
-                              requests:
-                                storage: 4Gi
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
