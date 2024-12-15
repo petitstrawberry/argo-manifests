@@ -11,11 +11,10 @@ spec:
       chart: local-static-provisioner
       helm:
         valueFiles:
-          - $repo/values.yml
+          - https://raw.githubusercontent.com/petitstrawberry/argo-manifests/refs/heads/main/local-static-provisioner/values.yml
     - path: local-static-provisioner
       repoURL: https://github.com/petitstrawberry/argo-manifests.git
       targetRevision: main
-      ref: repo
   destination:
     server: https://kubernetes.default.svc
     namespace: local-static-provisioner
