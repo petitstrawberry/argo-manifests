@@ -22,8 +22,6 @@ spec:
               k8s:
                 enabled: true
             statefulSet:
-              scheduling:
-                podManagementPolicy: OrderedReady
               highAvailability:
                 replicas: 3
               persistence:
