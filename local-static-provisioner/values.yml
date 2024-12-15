@@ -1,6 +1,6 @@
 classes:
 - name: local-storage
-hostDir: /mnt/local-pv
-volumeMode: Filesystem
-fsType: ext4
-namePattern: “*"
+  hostDir: /mnt/local-pv
+  volumeMode: Filesystem
+  fsType: ext4
+  namePattern: “*"
