@@ -35,7 +35,11 @@ spec:
                       replicas: 3
                     persistence:
                       volumeClaimTemplates:
-                        - storageClass: local-storage
+                        - metadata:
+                            name: local-vol
+                          spec:
+                            accessModes: [ "ReadWriteOnce" ]
+                            storageClassName: "local-storage"
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
