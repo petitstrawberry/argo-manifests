@@ -13,7 +13,7 @@ spec:
         valuesObject:
           classes:
             - name: local-storage
-              hostDir: /mnt/local-pv
+              hostDir: /mnt/fast-disks
               volumeMode: Filesystem
               fsType: ext4
               storageClass: true
