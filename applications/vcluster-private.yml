@@ -21,15 +21,6 @@ spec:
             distro:
               k3s:
                 enabled: true
-            statefulSet:
-              scheduling:
-                podManagementPolicy: OrderedReady
-              highAvailability:
-                replicas: 1
-            backingStore:
-              etcd:
-                deploy:
-                  enabled: true
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
