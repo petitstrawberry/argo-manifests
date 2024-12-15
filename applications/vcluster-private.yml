@@ -35,7 +35,7 @@ spec:
                       replicas: 3
                     persistence:
                       volumeClaimTemplates:
-                        storageClass: local-storage
+                        - storageClass: local-storage
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
