@@ -6,13 +6,13 @@ metadata:
 spec:
   ingressClassName: nginx # use your ingress class name
   rules:
-  - host: keycloak.ichigo.dev
+  - host: auth.ichigo.dev
     http:
       paths:
       - backend:
           service:
             name: keycloak-http
             port:
-              number: 80
+              number: 8443
         path: /
         pathType: Prefix
