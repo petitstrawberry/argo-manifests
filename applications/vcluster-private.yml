@@ -19,11 +19,11 @@ spec:
             server: https://private.k8s.ichigo.dev
           controlPlane:
             distro:
-              k0s:
+              k8s:
                 enabled: true
             statefulSet:
-              # highAvailability:
-              #   replicas: 3
+              highAvailability:
+                replicas: 3
               persistence:
                 volumeClaimTemplates:
                   - metadata:
@@ -39,6 +39,8 @@ spec:
                 deploy:
                   enabled: true
                   statefulSet:
+                    highAvailability:
+                      replicas: 3
                     persistence:
                       volumeClaimTemplates:
                         - metadata:
@@ -48,7 +50,7 @@ spec:
                             storageClassName: local-storage
                             resources:
                               requests:
-                                storage: 8Gi
+                                storage: 4Gi
             proxy:
               extraSANs:
               - private.k8s.ichigo.dev
