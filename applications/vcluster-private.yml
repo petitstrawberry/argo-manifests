@@ -17,6 +17,7 @@ spec:
         valuesObject:
           exportKubeConfig:
             server: https://private.k8s.ichigo.dev
+            context: vcluster-private
           controlPlane:
             distro:
               k8s:
