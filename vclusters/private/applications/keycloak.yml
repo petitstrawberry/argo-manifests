@@ -22,8 +22,8 @@ spec:
       chart: keycloak
       helm:
         valueFiles:
-          - '$main/values.yml'
-          - '$secret/values-secret.yml'
+          - $main/vclusters/private/keycloak/values.yml
+          - $secret/vclusters/private/keycloak/values-secret.yml
   syncPolicy:
     automated:
       selfHeal: true
