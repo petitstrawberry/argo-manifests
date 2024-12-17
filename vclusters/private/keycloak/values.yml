@@ -15,7 +15,7 @@ extraEnv: |
 ingress:
   enabled: true
   ingressClassName: "nginx"
-  servicePort: 8080
+  servicePort: http
   rules:
     - host: 'auth.ichigo.dev'
       paths:
