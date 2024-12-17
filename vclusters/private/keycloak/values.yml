@@ -1,8 +1,7 @@
-keycloak:
-  extraEnv: |
-    - name: KC_PROXY_HEADERS
-      value: "xforwarded"
-    - name: KC_PROXY_PROTOCOL_ENABLED
-      value: "true"
-    - name: KC_HOSTNAME
-      value: "auth.ichigo.dev"
+extraEnv: |
+  - name: KC_PROXY_HEADERS
+    value: "xforwarded"
+  - name: KC_PROXY_PROTOCOL_ENABLED
+    value: "true"
+  - name: KC_HOSTNAME
+    value: "auth.ichigo.dev"
