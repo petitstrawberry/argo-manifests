@@ -26,3 +26,6 @@ http:
   relativePath: "/"
   internalPort: http-internal
   internalScheme: HTTP
+
+autoscaling:
+  enabled: true
