@@ -15,9 +15,9 @@ extraEnv: |
 ingress:
   enabled: true
   ingressClassName: "nginx"
-  servicePort: http
+  servicePort: 8080
   rules:
     - host: 'auth.ichigo.dev'
       paths:
-        - path: '{{ tpl .Values.http.relativePath $ | trimSuffix "/" }}/'
+        - path: /
           pathType: Prefix
