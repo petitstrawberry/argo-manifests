@@ -11,3 +11,13 @@ extraEnv: |
   - name: JAVA_OPTS_APPEND
     value: >-
       -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
+
+ingress:
+  enabled: true
+  ingressClassName: "nginx"
+  servicePort: http
+  rules:
+    - host: 'auth.ichigo.dev'
+      paths:
+        - path: '{{ tpl .Values.http.relativePath $ | trimSuffix "/" }}/'
+          pathType: Prefix
