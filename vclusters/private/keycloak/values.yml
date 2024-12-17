@@ -13,7 +13,7 @@ extraEnv: |
       -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
 proxy:
   enabled: true
-  mode: x-forwarded
+  mode: xforwarded
   http:
     enabled: true
 
