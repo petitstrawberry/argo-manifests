@@ -1,18 +1,13 @@
+command:
+  - "/opt/keycloak/bin/kc.sh"
+  - "start"
+  - "--http-port=8080"
+  - "--hostname-strict=false"
 extraEnv: |
-  - name: KC_PROXY_HEADERS
-    value: "xforwarded"
-  - name: KC_PROXY_PROTOCOL_ENABLED
-    value: "true"
-  - name: KC_HOSTNAME
-    value: "https://auth.ichigo.dev"
-  - name: KC_HTTP_ENABLED
-    value: "true"
-ingress:
-  enabled: true
-  ingressClassName: "nginx"
-  servicePort: http
-  rules:
-    - host: 'auth.ichigo.dev'
-      paths:
-        - path: /
-          pathType: Prefix
+  - name: KEYCLOAK_ADMIN
+    value: admin
+  - name: KEYCLOAK_ADMIN_PASSWORD
+    value: admin
+  - name: JAVA_OPTS_APPEND
+    value: >-
+      -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
