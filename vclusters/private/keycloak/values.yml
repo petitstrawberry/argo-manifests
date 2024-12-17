@@ -1,14 +1,6 @@
 keycloak:
   autoscaling:
     enabled: true
-  ingress:
-    enabled: true
-    path: /
-    hosts:
-      - auth.ichigo.dev
-    tls:
-      hosts:
-        - auth.ichigo.dev
   extraEnv: |
     - name: PROXY_ADDRESS_FORWARDING
       value: "true"
