@@ -4,7 +4,7 @@ extraEnv: |
   - name: KC_PROXY_PROTOCOL_ENABLED
     value: "true"
   - name: KC_HOSTNAME
-    value: "auth.ichigo.dev"
+    value: "https://auth.ichigo.dev"
 ingress:
   enabled: true
   ingressClassName: "nginx"
