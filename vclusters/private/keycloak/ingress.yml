@@ -13,6 +13,6 @@ spec:
           service:
             name: keycloak-http
             port:
-              number: 8443
+              number: 80
         path: /
         pathType: Prefix
