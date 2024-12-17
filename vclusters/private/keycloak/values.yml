@@ -1,4 +1,6 @@
 keycloak:
   extraEnv: |
+    - name: KC_PROXY
+      value: "passthrough"
     - name: PROXY_ADDRESS_FORWARDING
       value: "true"
