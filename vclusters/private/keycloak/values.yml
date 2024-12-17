@@ -5,3 +5,12 @@ extraEnv: |
     value: "true"
   - name: KC_HOSTNAME
     value: "auth.ichigo.dev"
+ingress:
+  enabled: true
+  ingressClassName: "nginx"
+  servicePort: https
+  rules:
+    - host: 'auth.ichigo.dev'
+      paths:
+        - path: /
+          pathType: Prefix
