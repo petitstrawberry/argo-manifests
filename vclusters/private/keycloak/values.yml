@@ -21,3 +21,8 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
+
+http:
+  relativePath: "/"
+  internalPort: http-internal
+  internalScheme: HTTP
