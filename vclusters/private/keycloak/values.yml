@@ -1,4 +1,6 @@
 keycloak:
+  autoscaling:
+    enabled: true
   ingress:
     enabled: true
     path: /
