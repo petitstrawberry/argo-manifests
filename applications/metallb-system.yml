@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://metallb.github.io/metallb
-      targetRevision: 0.14.8
+      targetRevision: 0.14.9
       chart: metallb
     - path: metallb-system
       repoURL: https://github.com/petitstrawberry/argo-manifests.git
