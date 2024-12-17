@@ -3,4 +3,10 @@ keycloak:
     enabled: true
     path: /
     hosts:
-      - keycloak.ichigo.dev
+      - auth.ichigo.dev
+    tls:
+      hosts:
+        - auth.ichigo.dev
+  extraEnv: |
+    - name: PROXY_ADDRESS_FORWARDING
+      value: "true"
