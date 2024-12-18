@@ -3,6 +3,15 @@ command:
   - "start"
   - "--http-port=8080"
   - "--hostname-strict=false"
+extraEnv: |
+  - name: JAVA_OPTS_APPEND
+    value: >-
+      -XX:MaxRAMPercentage=50.0
+      -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
+extraEnvFrom: |
+  - secretRef:
+      name: keycloak-env-secrets
+
 proxy:
   enabled: true
   mode: xforwarded
