@@ -33,3 +33,8 @@ autoscaling:
 
 dbchecker:
   enabled: true
+
+database:
+  vendor: postgres
+  hostname: db-cluster-rw
+  port: 5432
