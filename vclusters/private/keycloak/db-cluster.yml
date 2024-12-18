@@ -16,7 +16,6 @@ spec:
     pvcTemplate:
       accessModes:
         - ReadWriteOnce
-      storageClassName: nfs-client
       resources:
         requests:
           storage: 8Gi
