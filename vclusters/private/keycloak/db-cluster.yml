@@ -1,0 +1,49 @@
+# postgresql cluster
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: db-cluster
+  namespace: keycloak
+  annotations:
+    cnpg.io/skipEmptyWalArchiveCheck: enabled
+spec:
+  instances: 3
+  primaryUpdateStrategy: unsupervised
+  imageName: ghcr.io/cloudnative-pg/postgresql:15
+  minSyncReplicas: 1
+  maxSyncReplicas: 1
+  storage:
+    pvcTemplate:
+      accessModes:
+        - ReadWriteOnce
+      storageClassName: nfs-client
+      resources:
+        requests:
+          storage: 8Gi
+
+  postgresql:
+    parameters:
+      max_connections: "128"
+      shared_buffers: "2GB"
+      effective_cache_size: "6GB"
+      maintenance_work_mem: "512MB"
+      checkpoint_completion_target: "0.7"
+      wal_buffers: "16MB"
+      default_statistics_target: "100"
+      random_page_cost: "1.1"
+      effective_io_concurrency: "300"
+      work_mem: "8MB"
+      min_wal_size: "1GB"
+      max_wal_size: "4GB"
+      max_worker_processes: "4"
+      max_parallel_workers_per_gather: "2"
+      max_parallel_workers: "4"
+      max_parallel_maintenance_workers: "2"
+
+  bootstrap:
+    initdb:
+      database: keycloak
+      owner: keycloak
+      # secretsは別のプライベートリポジトリに置いてる
+      secret:
+        name: postgres-local-user-secret
