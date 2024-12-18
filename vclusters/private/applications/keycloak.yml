@@ -23,6 +23,7 @@ spec:
       helm:
         valueFiles:
           - $main/vclusters/private/keycloak/values.yml
+          - $secret/vclusters/private/keycloak/values-secret.yml
   syncPolicy:
     automated:
       selfHeal: true
