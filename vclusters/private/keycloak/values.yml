@@ -30,3 +30,6 @@ http:
 
 autoscaling:
   enabled: true
+
+dbchecker:
+  enabled: true
