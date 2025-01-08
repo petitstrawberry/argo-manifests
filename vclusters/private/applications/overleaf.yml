@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: overleaf
+  namespace: argocd
+spec:
+  destination:
+    namespace: overleaf
+    server: https://private.k8s.ichigo.dev
+  project: default
+  sources:
+    - path: vclusters/private/overleaf
+      repoURL: https://github.com/petitstrawberry/argo-manifests.git
+      targetRevision: main
+      ref: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
