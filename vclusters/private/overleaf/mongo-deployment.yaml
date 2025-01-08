@@ -29,7 +29,7 @@ spec:
           env:
             - name: MONGO_INITDB_DATABASE
               value: sharelatex
-          image: mongo:5.0
+          image: mongo:8.0
           livenessProbe:
             exec:
               command:
