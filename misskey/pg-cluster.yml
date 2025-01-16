@@ -7,11 +7,11 @@ metadata:
   annotations:
     cnpg.io/skipEmptyWalArchiveCheck: enabled
 spec:
-  instances: 1
+  instances: 3
   primaryUpdateStrategy: unsupervised
   imageName: ghcr.io/cloudnative-pg/postgresql:15
-  minSyncReplicas: 0
-  maxSyncReplicas: 0
+  minSyncReplicas: 1
+  maxSyncReplicas: 2
   storage:
     pvcTemplate:
       accessModes:
