@@ -10,8 +10,8 @@ spec:
   instances: 1
   primaryUpdateStrategy: unsupervised
   imageName: ghcr.io/cloudnative-pg/postgresql:15
-  minSyncReplicas: 1
-  maxSyncReplicas: 1
+  minSyncReplicas: 0
+  maxSyncReplicas: 0
   storage:
     pvcTemplate:
       accessModes:
