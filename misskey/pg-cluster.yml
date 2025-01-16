@@ -2,7 +2,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: misskey-postgres-cluster-another
+  name: misskey-postgres-cluster
   namespace: misskey
   annotations:
     cnpg.io/skipEmptyWalArchiveCheck: enabled
@@ -87,4 +87,4 @@ spec:
   schedule: "0 0 0 * * *"
   backupOwnerReference: self
   cluster:
-    name: misskey-postgres-cluster-another
+    name: misskey-postgres-cluster
