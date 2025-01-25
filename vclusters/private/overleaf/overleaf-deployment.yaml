@@ -23,6 +23,12 @@ spec:
         io.kompose.service: sharelatex
     spec:
       containers:
+        - resources:
+            limits:
+              cpu: 1000m
+              memory: 2Gi
+            requests:
+              memory: 1Gi
         - env:
             - name: EMAIL_CONFIRMATION_DISABLED
               valueFrom:
