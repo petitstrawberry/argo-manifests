@@ -29,7 +29,7 @@ spec:
               memory: 2Gi
             requests:
               memory: 1Gi
-        - env:
+          env:
             - name: EMAIL_CONFIRMATION_DISABLED
               valueFrom:
                 configMapKeyRef:
