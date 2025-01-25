@@ -18,13 +18,13 @@ spec:
       chart: mongodb
       helm:
         valueFiles:
-          - $main/vclusters/private/overleaf/mongo/values.yml
+          - $main/vclusters/private/overleaf/mongo/values.yaml
     - repoURL: registry-1.docker.io/bitnamicharts
       targetRevision: 20.6.3
       chart: redis
       helm:
         valueFiles:
-          - $main/vclusters/private/overleaf/redis/values.yml
+          - $main/vclusters/private/overleaf/redis/values.yaml
   syncPolicy:
     automated:
       selfHeal: true
