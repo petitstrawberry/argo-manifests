@@ -13,13 +13,13 @@ spec:
       repoURL: https://github.com/petitstrawberry/argo-manifests.git
       targetRevision: main
       ref: main
-    - repoURL: oci://registry-1.docker.io/bitnamicharts
+    - repoURL: registry-1.docker.io/bitnamicharts
       targetRevision: 16.4.2
       chart: mongodb
       helm:
         valueFiles:
           - $main/vclusters/private/overleaf/mongo/values.yml
-    - repoURL: oci://registry-1.docker.io/bitnamicharts
+    - repoURL: registry-1.docker.io/bitnamicharts
       targetRevision: 20.6.3
       chart: redis
       helm:
