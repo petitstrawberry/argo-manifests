@@ -67,6 +67,8 @@ spec:
             podSecurityStandard: baseline
             resourceQuota:
               enabled: true
+              quota:
+                pods: 40
             limitRange:
               enabled: true
             networkPolicy:
