@@ -4,13 +4,13 @@ data:
   ENABLE_CONVERSIONS: "true"
   ENABLED_LINKED_FILE_TYPES: project_file,project_output_file
   EXTERNAL_AUTH: none
-  OVERLEAF_MONGO_URL: mongodb://mongo-mongodb-headless.overleaf.svc.cluster.local/sharelatex
-  OVERLEAF_REDIS_HOST: redis-headless.overleaf.svc.cluster.local
-  REDIS_HOST: redis-headless.overleaf.svc.cluster.local
+  OVERLEAF_MONGO_URL: mongodb://overleaf-mongodb-headless.overleaf.svc.cluster.local/sharelatex
+  OVERLEAF_REDIS_HOST: overleaf-redis-headless.overleaf.svc.cluster.local
+  REDIS_HOST: overleaf-redis-headless.overleaf.svc.cluster.local
   REDIS_PORT: "6379"
   OVERLEAF_APP_NAME: Your Latexhub Online Editor
   OVERLEAF_SITE_URL: https://overleaf.ichigo.dev
-  OVERLEAF_NAV_TITLE: Latexhub
+  OVERLEAF_NAV_TITLE: Overleaf
   OVERLEAF_EMAIL_FROM_ADDRESS: "example@example.com"
   OVERLEAF_EMAIL_SMTP_HOST: "smtp.example.com"
   OVERLEAF_EMAIL_SMTP_PORT: "587"
