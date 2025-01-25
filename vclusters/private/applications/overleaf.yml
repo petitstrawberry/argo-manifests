@@ -13,6 +13,18 @@ spec:
       repoURL: https://github.com/petitstrawberry/argo-manifests.git
       targetRevision: main
       ref: main
+    - repoURL: https://charts.bitnami.com/bitnami
+      targetRevision: 16.4.2
+      chart: bitnami/mongodb
+      helm:
+        valueFiles:
+          - $main/vclusters/private/overleaf/mongo/values.yml
+    - repoURL: https://charts.bitnami.com/bitnami
+      targetRevision: 20.6.3
+      chart: bitnami/redis
+      helm:
+        valueFiles:
+          - $main/vclusters/private/overleaf/redis/values.yml
   syncPolicy:
     automated:
       selfHeal: true
