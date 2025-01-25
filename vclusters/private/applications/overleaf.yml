@@ -15,13 +15,13 @@ spec:
       ref: main
     - repoURL: https://charts.bitnami.com/bitnami
       targetRevision: 8.0.4
-      chart: bitnami/mongodb
+      chart: mongodb
       helm:
         valueFiles:
           - $main/vclusters/private/overleaf/mongo/values.yml
     - repoURL: https://charts.bitnami.com/bitnami
       targetRevision: 7.4.2
-      chart: bitnami/redis
+      chart: redis
       helm:
         valueFiles:
           - $main/vclusters/private/overleaf/redis/values.yml
