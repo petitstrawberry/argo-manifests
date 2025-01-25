@@ -9,7 +9,7 @@ data:
   REDIS_HOST: redis-headless.overleaf.svc.cluster.local
   REDIS_PORT: "6379"
   OVERLEAF_APP_NAME: Your Latexhub Online Editor
-  OVERLEAF_SITE_URL: http://latex.example.com
+  OVERLEAF_SITE_URL: https://overleaf.ichigo.dev
   OVERLEAF_NAV_TITLE: Latexhub
   OVERLEAF_EMAIL_FROM_ADDRESS: "example@example.com"
   OVERLEAF_EMAIL_SMTP_HOST: "smtp.example.com"

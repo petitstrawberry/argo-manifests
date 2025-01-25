@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: overleaf.example.com
+  - host: overleaf.ichigo.dev
     http:
       paths:
       - backend:
