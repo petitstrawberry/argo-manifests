@@ -68,7 +68,7 @@ spec:
             resourceQuota:
               enabled: true
               quota:
-                pods: 40
+                pods: "40"
             limitRange:
               enabled: true
             networkPolicy:
