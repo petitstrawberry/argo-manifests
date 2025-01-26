@@ -15,7 +15,7 @@ spec:
       chart: gha-runner-scale-set
       helm:
         valueFiles:
-          - $secrets/vclusters/private/applications/arc-runners/values.yml
+          - $secrets/vclusters/private/arc-runners/values.yml
   destination:
     server:  https://private.k8s.ichigo.dev
     namespace: arc-runners
