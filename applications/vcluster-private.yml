@@ -72,6 +72,7 @@ spec:
                 count/services: "40"
                 limits.cpu: "40"
                 limits.ephemeral-storage: "320Gi"
+                requests.ephemeral-storage: "180Gi"
             limitRange:
               enabled: true
             networkPolicy:
