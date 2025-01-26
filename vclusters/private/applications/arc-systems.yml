@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: arc-system
+  name: arc-systems
   namespace: argocd
 spec:
   project: default
@@ -11,7 +11,7 @@ spec:
     chart: gha-runner-scale-set-controller
   destination:
     server:  https://private.k8s.ichigo.dev
-    namespace: arc-system
+    namespace: arc-systems
   syncPolicy:
     automated:
       selfHeal: true
