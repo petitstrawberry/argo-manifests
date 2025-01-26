@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: arc-runners
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - path: vclusters/private/applications/arc-runners
+      repoURL: https://github.com/petitstrawberry/argo-secrets.git
+      targetRevision: main
+      ref: secrets
+    - repoURL: ghcr.io/actions/actions-runner-controller-charts
+      targetRevision: 0.10.1
+      chart: gha-runner-scale-set
+      helm:
+        valueFiles:
+          - $secrets/vclusters/private/applications/arc-runners/values.yml
+  destination:
+    server:  https://private.k8s.ichigo.dev
+    namespace: arc-runners
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
