@@ -70,6 +70,7 @@ spec:
               quota:
                 pods: "40"
                 count/pods: "40"
+                count/services: "40"
             limitRange:
               enabled: true
             networkPolicy:
