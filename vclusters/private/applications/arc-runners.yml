@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   sources:
-    - path: vclusters/private/applications/arc-runners
+    - path: vclusters/private/arc-runners
       repoURL: https://github.com/petitstrawberry/argo-secrets.git
       targetRevision: main
       ref: secrets
