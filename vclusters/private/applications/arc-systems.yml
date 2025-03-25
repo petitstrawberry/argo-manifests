@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: ghcr.io/actions/actions-runner-controller-charts
-    targetRevision: 0.10.1
+    targetRevision: 0.11.0
     chart: gha-runner-scale-set-controller
   destination:
     server:  https://private.k8s.ichigo.dev
