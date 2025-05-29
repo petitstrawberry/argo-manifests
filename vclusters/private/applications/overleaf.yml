@@ -23,7 +23,7 @@ spec:
         valueFiles:
           - $main/vclusters/private/overleaf/mongo/values.yaml
     - repoURL: registry-1.docker.io/bitnamicharts
-      targetRevision: 20.13.4
+      targetRevision: 21.1.8
       chart: redis
       helm:
         valueFiles:
