@@ -17,7 +17,7 @@ spec:
       repoURL: https://github.com/petitstrawberry/argo-secrets.git
       ref: secrets
     - repoURL: registry-1.docker.io/bitnamicharts
-      targetRevision: 16.5.23
+      targetRevision: 16.5.24
       chart: mongodb
       helm:
         valueFiles:
