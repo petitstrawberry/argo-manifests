@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://kubernetes-sigs.github.io/sig-storage-local-static-provisioner
-      targetRevision: 2.0.0
+      targetRevision: 2.8.0
       chart: local-static-provisioner
       helm:
         valuesObject:
