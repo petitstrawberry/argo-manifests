@@ -11,7 +11,7 @@ spec:
       targetRevision: main
     - chart: vcluster
       repoURL: https://charts.loft.sh
-      targetRevision: 0.26.0
+      targetRevision: v0.27.0
       helm:
         releaseName: vcluster-private
         valuesObject:
