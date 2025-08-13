@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://cloudnative-pg.github.io/charts
-    targetRevision: 0.25.0
+    targetRevision: 0.26.0
     chart: cloudnative-pg
   destination:
     server: https://kubernetes.default.svc
