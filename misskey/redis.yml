@@ -45,7 +45,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: redis
-          image: redis:7.4.5
+          image: redis:7.4.6
           volumeMounts:
             - mountPath: /data
               name: redis-volume
