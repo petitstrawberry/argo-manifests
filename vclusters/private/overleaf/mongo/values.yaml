@@ -17,7 +17,7 @@
 
 global:
 
-  
+
 
   imageRegistry: ""
   ## E.g.
@@ -136,7 +136,7 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: bitnami/mongodb
-  tag: 8.0.13-debian-12-r0
+  tag: 7.0.14-debian-12-r3
   digest: ""
   ## Specify a imagePullPolicy
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
@@ -303,7 +303,7 @@ tls:
   ##     memory: 1024Mi
   ##
   resources: {}
-  ## Init Container securityContext 
+  ## Init Container securityContext
   ## ref: https://kubernetes.io/docs/concepts/security/pod-security-policy/
   ## @param tls.securityContext Init container generate-tls-cert Security context
   ##
@@ -1346,7 +1346,7 @@ backup:
       ## @param backup.cronjob.storage.annotations PVC annotations
       ##
       annotations: {}
-      ## @param backup.cronjob.storage.mountPath Path to mount the volume at 
+      ## @param backup.cronjob.storage.mountPath Path to mount the volume at
       ##
       mountPath: /backup/mongodb
       ## @param backup.cronjob.storage.subPath Subdirectory of the volume to mount at
