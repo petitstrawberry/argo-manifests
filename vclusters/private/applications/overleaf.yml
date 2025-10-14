@@ -9,25 +9,9 @@ spec:
     server: https://private.k8s.ichigo.dev
   project: default
   sources:
-    - path: vclusters/private/overleaf
-      repoURL: https://github.com/petitstrawberry/argo-manifests.git
-      targetRevision: main
-      ref: main
-    - path: vclusters/private/overleaf
-      repoURL: https://github.com/petitstrawberry/argo-secrets.git
-      ref: secrets
-    - repoURL: registry-1.docker.io/bitnamicharts
-      targetRevision: 16.5.45
-      chart: mongodb
-      helm:
-        valueFiles:
-          - $main/vclusters/private/overleaf/mongo/values.yaml
-    - repoURL: registry-1.docker.io/bitnamicharts
-      targetRevision: 21.2.14
-      chart: redis
-      helm:
-        valueFiles:
-          - $main/vclusters/private/overleaf/redis/values.yaml
+    - repoURL: https://k8s-at-home.com/charts/
+      targetRevision: 3.1.2
+      chart: overleaf
   syncPolicy:
     automated:
       selfHeal: true
