@@ -103,7 +103,7 @@ image:
   registry: docker.io
   repository: bitnami/redis
   # tag:
-  digest: "sha256:f620d31110b4fb7f15573356fd0579c8766913fde2d2fa2bb0196877c905d36b"
+  digest: "sha256:3a822a270ebc55bc49cac61afebce3ede0c68eb9b08b1e9d4b2d57ad29f78997"
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
   ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
