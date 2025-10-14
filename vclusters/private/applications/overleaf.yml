@@ -10,7 +10,7 @@ spec:
   project: default
   sources:
     - repoURL: https://k8s-at-home.com/charts/
-      targetRevision: 2.7.1
+      targetRevision: 3.1.2
       chart: overleaf
   syncPolicy:
     automated:
