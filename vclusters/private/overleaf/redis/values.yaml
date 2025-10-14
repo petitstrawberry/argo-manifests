@@ -102,7 +102,7 @@ diagnosticMode:
 image:
   registry: docker.io
   repository: bitnami/redis
-  tag: 8.2.1-debian-12-r0
+  tag: sha256-794907dd6ee8a7175d77b5d3c74d0b598b27579ffe65359e05a2ec25eca40607
   digest: ""
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -1147,7 +1147,7 @@ sentinel:
   image:
     registry: docker.io
     repository: bitnami/redis-sentinel
-    tag: 8.2.1-debian-12-r0
+    tag: sha256-311b86a979d47c0358692f66d0455e3a9621127da1cac1db7b88f8dfa3ef3f14
     digest: ""
     ## Specify a imagePullPolicy
     ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
