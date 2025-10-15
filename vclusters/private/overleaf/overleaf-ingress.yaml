@@ -13,7 +13,7 @@ spec:
       paths:
       - backend:
           service:
-            name: sharelatex
+            name: overleaf
             port:
               number: 80
         path: /
