@@ -6,5 +6,5 @@ metadata:
 spec:
   containers:
   - name: busybox
-    image: busybox:1.28
+    image: busybox:1.37
     command: ['sh', '-c', 'sleep 3600'] # 1時間スリープさせてPodを起動したままにする

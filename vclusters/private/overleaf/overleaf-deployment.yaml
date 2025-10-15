@@ -24,7 +24,7 @@ spec:
     spec:
       initContainers:
         - name: wait-for-mongodb
-          image: busybox:1.28
+          image: busybox:1.37
           command: ['sh', '-c', 'until nslookup overleaf-mongodb-headless.overleaf.svc.cluster.local; do echo waiting for mongodb; sleep 2; done']  
       containers:
         - resources:
