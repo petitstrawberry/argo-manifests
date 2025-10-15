@@ -4,7 +4,7 @@ data:
   ENABLE_CONVERSIONS: "true"
   ENABLED_LINKED_FILE_TYPES: project_file,project_output_file
   EXTERNAL_AUTH: none
-  OVERLEAF_MONGO_URL: mongodb://overleaf-mongodb-headless.overleaf.svc.cluster.local/sharelatex
+  OVERLEAF_MONGO_URL: mongodb://overleaf-mongodb-headless.overleaf.svc.cluster.local/overleaf
   OVERLEAF_REDIS_HOST: overleaf-redis-headless.overleaf.svc.cluster.local
   REDIS_HOST: overleaf-redis-headless.overleaf.svc.cluster.local
   REDIS_PORT: "6379"
