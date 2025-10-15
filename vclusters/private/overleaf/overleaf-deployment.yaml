@@ -22,11 +22,11 @@ spec:
       labels:
         io.kompose.service: overleaf
     spec:
-      containers:
-        initContainers:
+      initContainers:
         - name: wait-for-mongodb
           image: busybox:1.28
-          command: ['sh', '-c', 'until nslookup overleaf-mongodb-headless.overleaf.svc.cluster.local; do echo waiting for mongodb; sleep 2; done']
+          command: ['sh', '-c', 'until nslookup overleaf-mongodb-headless.overleaf.svc.cluster.local; do echo waiting for mongodb; sleep 2; done']  
+      containers:
         - resources:
             limits:
               cpu: 1000m
