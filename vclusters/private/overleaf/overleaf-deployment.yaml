@@ -22,17 +22,14 @@ spec:
       labels:
         io.kompose.service: overleaf
     spec:
-      initContainers:
-        - name: wait-for-mongodb
-          image: busybox:1.37
-          command: ['sh', '-c', 'until nslookup overleaf-mongodb-headless.overleaf.svc.cluster.local; do echo waiting for mongodb; sleep 2; done']  
+      nodeName: k8s-worker-1
       containers:
         - resources:
             limits:
               cpu: 1000m
-              memory: 2Gi
+              memory: 4Gi
             requests:
-              memory: 1Gi
+              memory: 4Gi
           env:
             - name: EMAIL_CONFIRMATION_DISABLED
               valueFrom:
