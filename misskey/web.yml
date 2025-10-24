@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: misskey/misskey:2025.10.0
+          image: misskey/misskey:2025.10.1
           imagePullPolicy: Always
           volumeMounts:
             - mountPath: /misskey/.config
