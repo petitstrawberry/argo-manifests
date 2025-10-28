@@ -159,7 +159,7 @@ spec:
                   name: sharelatex-variables
             - name: V1_HISTORY_URL
               value: http://sharelatex:3100/api
-          image: tuetenk0pp/sharelatex-full:5.5.4
+          image: tuetenk0pp/sharelatex-full:5.5.5
           name: overleaf
 #          securityContext:
 #            allowPrivilegeEscalation: false
