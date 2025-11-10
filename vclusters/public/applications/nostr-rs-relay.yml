@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   destination:
-    server: https://kubernetes.default.svc
+    server: https://public.k8s.ichigo.dev
     namespace: nostr-relay
   sources:
     - repoURL: https://kriegalex.github.io/k8s-charts/

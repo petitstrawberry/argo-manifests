@@ -1,0 +1,88 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vcluster-public
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - path: vclusters/public
+      repoURL: https://github.com/petitstrawberry/argo-manifests.git
+      targetRevision: main
+    - chart: vcluster
+      repoURL: https://charts.loft.sh
+      targetRevision: 0.30.0
+      helm:
+        releaseName: vcluster-public
+        valuesObject:
+          exportKubeConfig:
+            server: https://public.k8s.ichigo.dev
+            context: vcluster-public
+          controlPlane:
+            distro:
+              k8s:
+                enabled: true
+            statefulSet:
+              highAvailability:
+                replicas: 3
+              persistence:
+                volumeClaimTemplates:
+                  - metadata:
+                      name: data
+                    spec:
+                      accessModes: [ "ReadWriteOnce" ]
+                      storageClassName: local-storage
+                      resources:
+                        requests:
+                          storage: 4Gi
+            backingStore:
+              etcd:
+                deploy:
+                  enabled: true
+                  statefulSet:
+                    highAvailability:
+                      replicas: 3
+                    persistence:
+                      volumeClaimTemplates:
+                        - metadata:
+                            name: data
+                          spec:
+                            accessModes: [ "ReadWriteOnce" ]
+                            storageClassName: local-storage
+                            resources:
+                              requests:
+                                storage: 4Gi
+            proxy:
+              extraSANs:
+              - public.k8s.ichigo.dev
+          sync:
+            toHost:
+              persistentVolumes:
+                enabled: true
+              storageClasses:
+                enabled: true
+              ingresses:
+                  enabled: true
+          policies:
+            podSecurityStandard: baseline
+            resourceQuota:
+              enabled: false
+              quota:
+                count/pods: "40"
+                count/services: "40"
+                limits.cpu: "40"
+                limits.ephemeral-storage: "320Gi"
+                requests.ephemeral-storage: "180Gi"
+            limitRange:
+              enabled: true
+            networkPolicy:
+              enabled: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vcluster-public
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
