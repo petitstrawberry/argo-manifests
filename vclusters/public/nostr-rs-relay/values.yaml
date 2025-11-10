@@ -19,6 +19,9 @@ resources:
     cpu: 500m
     memory: 512Mi
 persistence:
-  enabled: false
-relay:
-  public_url: https://nostr.ichigo.dev
+  enabled: true
+config:
+  info:
+    description: "A nostr-rs-relay on ichigo.dev"
+    name: "ichigo relay"
+    relay_url: wss://nostr.ichigo.dev
