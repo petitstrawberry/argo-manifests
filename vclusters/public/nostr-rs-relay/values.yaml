@@ -1,10 +1,16 @@
-# このファイルはドキュメント目的です。Application では inline values を使用しています。
-# repoURL は `nostr-rs-relay` チャートの Helm リポジトリ URL に置き換えてください。
 replicaCount: 1
 service:
   type: ClusterIP
 ingress:
-  enabled: false
+  enabled: true
+  className: nginx
+  annotations: {}
+  hosts:
+    - host: nostr.ichigo.dev
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
 resources:
   requests:
     cpu: 50m
