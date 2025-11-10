@@ -15,9 +15,13 @@ spec:
       helm:
         valueFiles:
           - $values/vclusters/public/nostr-rs-relay/values.yaml
+          - $secrets/vclusters/public/nostr-rs-relay/values.yaml
     - repoURL: https://github.com/petitstrawberry/argo-manifests.git
       targetRevision: main
       ref: values
+    - repoURL: https://github.com/petitstrawberry/argo-secrets.git
+      targetRevision: main
+      ref: secrets
   syncPolicy:
     automated:
       selfHeal: true

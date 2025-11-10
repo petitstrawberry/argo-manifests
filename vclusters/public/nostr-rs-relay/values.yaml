@@ -25,3 +25,8 @@ config:
     description: "A nostr-rs-relay on ichigo.dev"
     name: "ichigo relay"
     relay_url: wss://nostr.ichigo.dev
+  authorization:
+    # -- Enable NIP-42 authentication
+    nip42_auth: true
+    # -- Send DMs and gift wraps only to their authenticated recipients
+    nip42_dms: true
