@@ -1,0 +1,18 @@
+# このファイルはドキュメント目的です。Application では inline values を使用しています。
+# repoURL は `nostr-rs-relay` チャートの Helm リポジトリ URL に置き換えてください。
+replicaCount: 1
+service:
+  type: ClusterIP
+ingress:
+  enabled: false
+resources:
+  requests:
+    cpu: 50m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+persistence:
+  enabled: false
+relay:
+  public_url: https://nostr.ichigo.dev

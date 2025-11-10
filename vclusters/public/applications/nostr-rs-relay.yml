@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nostr-rs-relay
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nostr-relay
+  sources:
+    - repoURL: https://kriegalex.github.io/k8s-charts/
+      chart: nostr-rs-relay
+      targetRevision: 1.0.1
+      helm:
+        valueFiles:
+          - $values/vclusters/public/nostr-rs-relay/values.yaml
+    - repoURL: https://github.com/petitstrawberry/argo-manifests.git
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
